@@ -1,0 +1,163 @@
+body {
+    margin: 0; 
+    min-height: 100vh; 
+    background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.mainScreen {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.greeting {
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1000;
+    padding: 0 16px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.greeting > h1 {
+    font-size: clamp(28px, 9vw, 100px);
+    font-weight: 800;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+
+    background: linear-gradient(90deg, #691941, #7019c6, #026190, #059364, #d68a07, #ff007f);
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-shift 5s linear infinite; 
+    animation-direction: alternate-reverse;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes rainbow-shift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+#giftButton {
+    background-color: rgb(251, 120, 251);
+    width: min(300px, 85vw);
+    height: 50px;
+    border-radius: 15px;
+    border:2px solid #3A003D;
+    color: #3A003D;
+    font-size: clamp(16px, 4vw, 25px);
+    font-weight: 550;
+    margin: 0;
+    position: relative;
+    z-index: 1000;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+#giftButton:hover {
+    cursor: pointer;
+    background-color: rgb(241, 159, 241);
+    transform: scale(1.1);
+    
+}
+
+.miniGift1{
+    background: url(/images/blueBox.png);
+    bottom: clamp(12px, 5vw, 50px);
+    left: clamp(12px, 5vw, 50px);
+    background-size: contain;      
+    background-repeat: no-repeat;  
+    background-position: center;
+}
+
+.miniGift2 {
+    background: url(/images/pinkBox.png);
+    bottom: clamp(12px, 5vw, 50px);
+    right: clamp(12px, 5vw, 50px);
+    background-size: contain;      
+    background-repeat: no-repeat;  
+    background-position: center;
+}
+
+.miniGift1, .miniGift2 {
+    border-radius: 10px;
+    height: clamp(90px, 24vw, 200px);
+    width: clamp(90px, 24vw, 200px);
+    position: absolute;
+    transition-property: transform, width, height;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    perspective: 1000px;
+    z-index: 1000;
+}
+
+.miniGift1.opened, .miniGift2.opened {
+    width: clamp(140px, 42vw, 300px);
+    height: clamp(140px, 42vw, 300px);
+}
+
+.miniGift1:not(.opened):hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.miniGift2:not(.opened):hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+@keyframes arrow-bob {
+  0%, 100% {
+    transform: translateY(0); 
+  }
+  50% {
+    transform: translateY(-30px); 
+  }
+}
+
+.arrow-pointer {
+    position: absolute;
+    top: clamp(-40px, -12vw, -70px); 
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(40px, 12vw, 80px);
+    height: clamp(40px, 12vw, 80px);
+    background-image: url(images/arrow.png);
+    background-repeat: no-repeat; 
+    background-size: contain; 
+    background-position: center;  
+    animation: arrow-bob 1.5s ease-in-out infinite ;
+    z-index: 10; 
+}
+
+.hidden {
+    display: none;
+}
+
+#miniSurprise1, #miniSurprise2 {
+    width: 100%;
+    height: 100%;
+    pointer-events: auto; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#miniSurprise1 {
+    background-image: url(/images/kiss1.gif);
+}
+
+#miniSurprise2 {
+    background-image: url(/images/kiss2.gif);
+}

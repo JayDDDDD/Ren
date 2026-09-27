@@ -1,0 +1,185 @@
+body {
+    margin: 0; 
+    min-height: 100vh; 
+    background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.dimOverlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    transition: background 0.3s ease;
+    z-index: 999;
+}
+.dimOverlay.active{
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.poemContainer {
+    display: none;
+    width: min(90vw, 450px);
+    height: min(70vh, 500px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    margin: 30px;
+    cursor: pointer;
+    transition: width 0.3s ease, height 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.poemContainer.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    z-index: 1001;
+}
+
+.poemInner {
+    width: 100%;
+    height: 100%; 
+    background:linear-gradient(rgb(238, 241, 183), rgb(174, 247, 209)) ;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poem {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+    font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+.stanzaBreak {
+    margin-bottom: 23px;
+}
+
+.poemContainer.expanded .poemInner {
+    transform: scale(1.7);
+}
+
+.poemContainer:not(.expanded):hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.envelope {
+    display: none;
+    width: clamp(180px, 60vw, 350px);
+    height: clamp(180px, 60vw, 350px);
+    background-image: url(/images/envelope.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+.envelope:hover {
+    transform: scale(1.2);
+}
+
+.jokeContainer {
+    display: flex;
+    background: linear-gradient(120deg, rgb(230, 102, 157), rgb(215, 94, 243));
+    width: min(90vw, 1000px);
+    min-height: 200px;
+    padding: clamp(20px, 5vw, 50px);
+    box-sizing: border-box;
+    border-radius: clamp(20px, 5vw, 50px);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+
+.jokeText {
+    font-family: 'Fredoka', 'Comfortaa', 'Nunito', 'Arial Rounded MT Bold', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 7vw, 120px);
+    line-height: 1.2;
+    text-align: center;
+    margin: 0;
+}
+
+.joke-words {
+    color: #2D0B3F;
+    text-shadow: 
+        3px 3px 0px rgba(255, 255, 255, 0.9),  
+        6px 6px 15px rgba(0, 0, 0, 0.15);     
+}
+
+.closeBtn {
+    position: absolute;
+    top: clamp(10px, 3vw, 30px);
+    right: clamp(10px, 3vw, 35px);
+    width: clamp(30px, 8vw, 50px);
+    height: clamp(30px, 8vw, 50px);
+    background-color: transparent;
+    border: none;
+    font-size: clamp(40px, 9vw, 80px);
+    cursor: pointer;
+    color: #3A003D;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    padding: 0;
+}
+
+.closeBtn:hover {
+    color: #6f16a2;
+}
+
+#moviesButton {
+  display: none;
+  background-image: url(/images/arrowRight.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  z-index: 1000;
+  width: clamp(70px, 25vw, 150px);
+  height: clamp(70px, 25vw, 150px);
+  --scale: 1; 
+  transition: --scale 0.2s ease, transform 0.2s ease;
+  animation: moveLeftRight 1.2s ease-in-out infinite;
+}
+
+#moviesButton:hover {
+  --scale: 1.2;
+}
+
+@keyframes moveLeftRight {
+  0%, 100% {
+    transform: translateX(0px) scale(var(--scale));
+  }
+  50% {
+    transform: translateX(20px) scale(var(--scale)); /* replace 20px with your original move values */
+  }
+}
+
+@media (max-width: 700px) {
+    .poemContainer.expanded {
+        width: 92vw;
+        height: min(80vh, 600px);
+    }
+    .poemContainer.expanded .poemInner {
+        transform: scale(1); /* outer box already fills the width, so no extra zoom needed */
+    }
+}

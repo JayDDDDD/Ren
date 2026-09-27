@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Movies</title>
+
+<link rel="stylesheet" href="/css/movies.css">
+</head>
+<body>
+
+<main>
+  <section class="block" id="search-section">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search for a movie...">
+      <button id="searchBtn" class="btn">Search</button>
+    </div>
+  </section>
+
+  <section class="block" id="search-results" style="display:none;">
+    <h2 class="section-title">Search Results</h2>
+    <div class="results-panel" style="position:relative;">
+      <button class="close-btn" id="closeSearchResults" aria-label="Close search results">&times;</button>
+      <div class="results-grid" id="grid-search"></div>
+    </div>
+  </section>
+
+  <section class="block" id="trending-movies">
+    <h2 class="section-title">Trending Movies</h2>
+    <div class="carousel-wrap">
+      <button class="arrow arrow-left" data-target="grid-movies" aria-label="Scroll left">&#10094;</button>
+      <div class="carousel" id="grid-movies"></div>
+      <button class="arrow arrow-right" data-target="grid-movies" aria-label="Scroll right">&#10095;</button>
+    </div>
+  </section>
+
+  <section class="block" id="trending-series">
+    <h2 class="section-title">Trending Series</h2>
+    <div class="carousel-wrap">
+      <button class="arrow arrow-left" data-target="grid-series" aria-label="Scroll left">&#10094;</button>
+      <div class="carousel" id="grid-series"></div>
+      <button class="arrow arrow-right" data-target="grid-series" aria-label="Scroll right">&#10095;</button>
+    </div>
+  </section>
+
+  <section class="block" id="trending-anime">
+    <h2 class="section-title">Trending Anime</h2>
+    <div class="carousel-wrap">
+      <button class="arrow arrow-left" data-target="grid-anime" aria-label="Scroll left">&#10094;</button>
+      <div class="carousel" id="grid-anime"></div>
+      <button class="arrow arrow-right" data-target="grid-anime" aria-label="Scroll right">&#10095;</button>
+    </div>
+  </section> 
+
+  <section class="block" id="recommended">
+    <h2 class="section-title">My Recommendations</h2>
+    <div class="carousel-wrap">
+      <button class="arrow arrow-left" data-target="grid-recommended" aria-label="Scroll left">&#10094;</button>
+      <div class="carousel" id="grid-recommended"></div>
+      <button class="arrow arrow-right" data-target="grid-recommended" aria-label="Scroll right">&#10095;</button>
+    </div>
+  </section>
+
+  <section class="block" id="watched">
+    <h2 class="section-title">Movies We've Watched</h2>
+    <div class="carousel-wrap">
+      <button class="arrow arrow-left" data-target="grid-watched" aria-label="Scroll left">&#10094;</button>
+      <div class="carousel" id="grid-watched"></div>
+      <button class="arrow arrow-right" data-target="grid-watched" aria-label="Scroll right">&#10095;</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- Detail modal -->
+<div class="overlay" id="detailOverlay">
+  <div class="modal-wrap" style="width:100%;max-width:560px;">
+    <button class="close-btn" id="closeDetail" aria-label="Close">&times;</button>
+    <div class="modal">
+      <div class="modal-poster" id="modalPoster"></div>
+      <div class="modal-body">
+        <h2 id="modalTitle"></h2>
+        <div class="sub" id="modalMeta"></div>
+        <p class="desc" id="modalDesc"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Welcome popup -->
+<div class="overlay open" id="welcomeOverlay">
+  <div class="modal welcome-card">
+    <div class="icon">🎬</div>
+    <h2 class="rainbow-text">Welcome, my love</h2>
+    <p>This is for our next watch together session! Browse trending movies, series, anime, my recommendations, or click the dice for a random watch suggestion!</p>
+    <button class="btn" id="welcomeClose">Go RenDragon!</button>
+  </div>
+</div>
+
+<!-- Random generator -->
+<div class="fab-wrap">
+  <button class="fab" id="randomFab" aria-haspopup="true" aria-label="Random pick">🎲</button>
+</div>
+<div class="fab-menu" id="randomMenu">
+  <span>Surprise me with a…</span>
+  <button data-pool="movie">🎬 Random Movie</button>
+  <button data-pool="series">📺 Random Series</button>
+  <button data-pool="anime">🌀 Random Anime</button>
+</div>
+
+<script src="/js/movies.js"></script>
+<script src="/js/confetti.js"></script>
+</body>
+</html>
