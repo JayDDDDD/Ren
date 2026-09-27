@@ -22,6 +22,7 @@ body {
 }
 .dimOverlay.active{
     background: rgba(0, 0, 0, 0.6);
+    pointer-events: auto;
 }
 
 .poemContainer {
@@ -33,7 +34,7 @@ body {
     z-index: 1000;
     margin: 30px;
     cursor: pointer;
-    transition: width 0.3s ease, height 0.3s ease, transform 0.2s ease-in-out;
+    position: relative;
 }
 
 .poemContainer.expanded {
@@ -50,10 +51,10 @@ body {
     height: 100%; 
     background:linear-gradient(rgb(238, 241, 183), rgb(174, 247, 209)) ;
     border-radius: 25px;
-    transition: transform 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease;
 }
 
 .poem {
@@ -70,12 +71,11 @@ body {
 }
 
 .poemContainer.expanded .poemInner {
-    transform: scale(1.7);
+    transform: scale(1.6);
 }
 
-.poemContainer:not(.expanded):hover {
+.poemContainer:not(.expanded):hover .poemInner {
     transform: scale(1.05);
-    cursor: pointer;
 }
 
 .envelope {
@@ -175,11 +175,7 @@ body {
 }
 
 @media (max-width: 700px) {
-    .poemContainer.expanded {
-        width: 92vw;
-        height: min(80vh, 600px);
-    }
     .poemContainer.expanded .poemInner {
-        transform: scale(1); /* outer box already fills the width, so no extra zoom needed */
+        transform: scale(1.3);
     }
 }

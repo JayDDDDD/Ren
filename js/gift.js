@@ -20,3 +20,8 @@ const dimOverlay = document.getElementById('dimOverlay');
     poemContainer.classList.toggle('expanded');
     dimOverlay.classList.toggle('active');
   });
+
+  dimOverlay.addEventListener('click', () => {
+    poemContainer.classList.remove('expanded');
+    dimOverlay.classList.remove('active');
+  });
