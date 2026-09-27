@@ -172,7 +172,11 @@ function renderCarousel(containerId, items){
   `).join("");
 
   [...el.children].forEach((card, i) => {
-    const open = () => openDetail(items[i]);
+    const open = () => {
+      card.classList.add("pop");
+      card.addEventListener("animationend", () => card.classList.remove("pop"), { once: true });
+      openDetail(items[i]);
+    };
     card.addEventListener("click", open);
     card.addEventListener("keydown", e => { if(e.key === "Enter") open(); });
   });
