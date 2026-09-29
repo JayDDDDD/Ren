@@ -154,6 +154,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+    z-index: 1002;
   }
   .overlay.open{
     opacity: 1;
@@ -211,7 +212,10 @@
   .modal-wrap{ position: relative; }
 
  
-  .welcome-card{ max-width: 420px; text-align: center; padding: 36px 30px 30px; }
+  .welcome-card{ 
+    max-width: 420px; 
+    text-align: center; 
+    padding: 36px 30px 30px; }
   .welcome-card .icon{ font-size: 2.6rem; margin-bottom: 10px; }
   .welcome-card h2{ margin: 0 0 8px; font-size: 2rem; font-weight: 800; }
   .welcome-card p{ color: var(--text-dim); margin: 0 0 22px; }
@@ -306,6 +310,8 @@
   gap: 12px;
   width: min(90%, 700px);
   margin: 0 auto;
+  position: relative;
+  z-index: 1000;
 }
 #searchInput{
   flex: 1;
