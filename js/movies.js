@@ -49,6 +49,10 @@ const RECOMMENDED_IDS = [
   { id: 1510688,   type: "movie"  },  
   { id: 1465063,  type: "movie"  },
   { id: 1255833,  type: "movie"  },
+  { id: 281016,  type: "series"  },
+  { id: 851644,  type: "movie"  },
+  { id: 9043,  type: "movie"  },
+  { id: 11638,  type: "movie"  },
   { id: 1117898,  type: "movie"  }   
 ];
 
