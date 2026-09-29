@@ -133,7 +133,7 @@ body {
     transform: translateX(-50%);
     width: clamp(40px, 12vw, 80px);
     height: clamp(40px, 12vw, 80px);
-    background-image: url(images/arrow.png);
+    background-image: url(/images/arrow.png);
     background-repeat: no-repeat; 
     background-size: contain; 
     background-position: center;  
